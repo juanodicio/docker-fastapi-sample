@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 from enum import Enum
@@ -30,3 +31,5 @@ Keyboards = [
 @app.get("/keyboards", response_model=List[Keyboard])
 async def keyboards_all():
     return Keyboards
+
+uvicorn.run(app, host="0.0.0.0", port=8000)
